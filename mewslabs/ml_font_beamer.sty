@@ -1,0 +1,27 @@
+\ifthenelse{\boolean{b_font_kp}}{%
+%** Kpfonts font (the best one)
+%** WARNING: do not use amsmath & textcomp packages with kpfonts !
+  \RequirePackage[
+    light,
+    nofligatures,
+    %% oldstylenums,
+    largesmallcaps,
+    partialup
+  ]{kpfonts}
+}{}
+\ifthenelse{\boolean{b_font_lmodern}}{%
+  %** LaTeX default font
+  \RequirePackage{lmodern}
+  \usefonttheme[onlymath]{serif}
+}{}
+\ifthenelse{\boolean{b_font_libertine}}{%
+  %** Libertine font
+  \RequirePackage[osf]{libertine}
+  %% \RequirePackage[libertine]{newtxmath}
+}{}
+\ifthenelse{\boolean{b_font_newtx}}{%
+  %** Newtx font
+  \RequirePackage{newtx}
+  \let\Bbbk\relax
+  \renewcommand{\familydefault}{\sfdefault} % only for beamer
+}{}

@@ -1,0 +1,290 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Colors definitions
+
+%** mewslabs colors
+\definecolor{mldarkgreen}{RGB}{38,103,48}
+\definecolor{mllightgreen}{RGB}{139,187,58}
+\definecolor{mldarkgrey}{RGB}{103,103,103}
+\definecolor{mllightgrey}{RGB}{164,145,135}
+\definecolor{mlblue}{RGB}{0,188,180}
+
+%** almost ppt color table
+\definecolor{blue_ppt}{RGB}{79, 129, 189}
+\definecolor{light_blue_ppt}{RGB}{208, 216, 231}
+\definecolor{grey_ppt}{RGB}{233, 236, 243}
+
+%** um6p/emines colors
+\definecolor{umBlueD}{RGB}{37, 43, 68}
+\definecolor{umBlue}{RGB}{43, 50, 79}
+\definecolor{umBlueL}{RGB}{52,106,163}
+\definecolor{umOrange}{RGB}{213, 138, 115}
+
+%** ratp colors (M)
+\definecolor{line01}{RGB}{242, 201,  49}
+\definecolor{line02}{RGB}{ 33, 110, 180}
+\definecolor{line03}{RGB}{154, 153,  64}
+\definecolor{line04}{RGB}{187,  77, 152}
+\definecolor{line05}{RGB}{222, 139,  83}
+\definecolor{line06}{RGB}{121, 187, 146}
+\definecolor{line07}{RGB}{223, 154, 177}
+\definecolor{line08}{RGB}{197, 163, 202}
+\definecolor{line09}{RGB}{205, 200,  63}
+\definecolor{line10}{RGB}{223, 176,  57}
+\definecolor{line11}{RGB}{142, 101,  56}
+\definecolor{line12}{RGB}{ 50, 142,  91}
+\definecolor{line13}{RGB}{137, 199, 214}
+\definecolor{line14}{RGB}{103,  50, 142}
+
+%** ratp colors (RER)
+\definecolor{lineA}{RGB}{211,  94,  60}
+\definecolor{lineB}{RGB}{ 78, 144, 204}
+\definecolor{lineC}{RGB}{232, 203,  14}
+\definecolor{lineD}{RGB}{ 23, 150,  76}
+\definecolor{lineE}{RGB}{199,  95, 173}
+
+%** cea
+\definecolor{ceared}{RGB}{220,5,40}
+\definecolor{ceagreen}{RGB}{15,113,39}
+\definecolor{ceagrey}{RGB}{102,102,102}
+\definecolor{ceared_light}{RGB}{230,0,25}
+\definecolor{ceagreen_light}{RGB}{145,195,10}
+\definecolor{ceagrey_light}{RGB}{227,227,227}
+
+%** rte
+\definecolor{rtecyan}{RGB}{23,165,220}
+\definecolor{rteblue}{RGB}{80,130,180}
+\definecolor{rteblue2}{RGB}{65,120,207}
+\definecolor{rtedarkblue}{RGB}{55,98,160}
+\definecolor{rtedarkgreen}{RGB}{0,155,0}
+
+%** others
+\definecolor{niceRed}{RGB}{157,16,45}
+
+%** document colors
+\colorlet{mmain}{line02}
+\colorlet{mgray}{black!33}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%** text commands
+\newcommand\eg{\textit{e.g.}}
+\newcommand\ie{\textit{i.e.}}
+\newcommand\vs{\textit{vs.}}
+\newcommand\etal{\textit{et~al.}}
+\newcommand\quotebreak{(\ldots)}
+
+%** utils
+\newcommand\todo[1]{\textcolor{red}{\bfseries [#1]}}
+\newcommand\citenull{\cite{null}}
+
+%** easy referencing (french)
+\newcommand{\appref}[1]{annexe~\ref{sec:#1}}
+\newcommand{\Appref}[1]{annexe~\ref{sec:#1}}
+\newcommand{\chpref}[1]{chapitre~\ref{sec:#1}}
+\newcommand{\Chpref}[1]{Chapitre~\ref{sec:#1}}
+\newcommand{\equref}[1]{\eqref{eq:#1}}
+\newcommand{\figref}[1]{figure~\ref{fig:#1}}
+\newcommand{\Figref}[1]{Figure~\ref{fig:#1}}
+\newcommand{\secref}[1]{section~\ref{sec:#1}}
+\newcommand{\Secref}[1]{Section~\ref{sec:#1}}
+\newcommand{\tabref}[1]{tableau~\ref{tab:#1}}
+\newcommand{\Tabref}[1]{Tableau~\ref{tab:#1}}
+
+%** custom symbols
+
+\newcommand{\cmark}{\textcolor{ceagreen}{\ding{51}}} % check
+\newcommand{\xmark}{\textcolor{ceared}{\ding{55}}} % cross
+\newcommand{\myarrow}{\textcolor{rtedarkblue}{\ding{220}}}
+\newcommand{\mycal}{\faCalendar} % calendar
+\newcommand{\mycross}{\textcolor{red}{\ding{53}}} % red cross (for backward compatibility)
+
+\newcommand{\ucmark}{\tikz[y=0.80pt,x=0.80pt,yscale=-0.02,xscale=0.02, inner sep=0pt, outer sep=0pt]% work in progress
+  {\path[fill=ceared,nonzero rule] (635.8833,600.0000) .. controls
+    (651.0771,599.6647) and (665.7558,591.6224) .. (673.9783,577.5525) .. controls
+    (682.1001,563.3625) and (681.7384,546.6500) .. (674.5074,533.1862) --
+    (378.4699,21.6487) .. controls (370.6590,8.7662) and (356.3424,0.0975) ..
+    (340.1099,-0.0063) .. controls (323.6499,0.0972) and (309.3362,8.7657) ..
+    (301.4862,21.6487) -- (5.4612,533.1862) .. controls (-1.7257,546.6500) and
+    (-2.0877,563.3625) .. (5.9903,577.5525) .. controls (14.2570,591.6225) and
+    (28.9353,599.6650) .. (44.0853,600.0000) -- (635.8853,600.0000);
+    \path[fill=white,nonzero rule] (340.1208,75.7875) -- (71.0683,540.8450) --
+    (608.8933,540.8450) -- (340.1058,75.7950);
+    \path[fill=black,nonzero rule] (303.5900,225.7800) .. controls
+    (280.4500,225.7300) and (276.9200,248.1400) .. (276.8800,250.6200) .. controls
+    (276.9200,262.4400) and (285.4000,277.1700) .. (309.1600,279.4100) .. controls
+    (309.1600,279.4100) and (313.7700,280.0900) .. (313.6600,283.0900) .. controls
+    (313.7700,285.9400) and (313.7800,284.9700) .. (312.3400,286.5300) .. controls
+    (310.8500,288.2300) and (298.5500,299.6400) .. (298.3100,302.6600) .. controls
+    (296.9800,316.8800) and (300.1800,335.2800) .. (303.0900,345.9400) .. controls
+    (303.0900,345.9400) and (306.6000,354.7800) .. (303.8800,361.0000) .. controls
+    (301.0600,367.4700) and (289.0000,397.7400) .. (288.0000,399.5600) .. controls
+    (285.1300,404.8200) and (284.0000,409.1400) .. (285.8800,415.4100) .. controls
+    (284.6600,416.1100) and (264.4700,428.8800) .. (264.4700,428.8800) .. controls
+    (264.4700,428.8800) and (261.3500,421.5100) .. (253.5900,419.3800) .. controls
+    (245.7000,417.1100) and (239.1800,418.1800) .. (232.7200,405.9100) --
+    (226.8800,396.4100) .. controls (226.8800,396.4100) and (225.6700,392.9300) ..
+    (219.7500,391.6200) .. controls (213.9300,390.4900) and (206.1000,388.3000) ..
+    (202.8100,388.4700) .. controls (198.6100,388.8800) and (195.2200,387.7300) ..
+    (189.5900,394.2800) .. controls (185.0800,399.5300) and (112.8800,524.4700) ..
+    (112.8800,524.4700) -- (286.4100,524.4700) .. controls (286.4100,524.4700) and
+    (290.7100,524.0000) .. (289.5900,519.9700) .. controls (288.2700,516.1900) and
+    (267.3800,441.8100) .. (267.3800,441.8100) -- (291.4400,426.7500) .. controls
+    (291.4400,426.7500) and (293.3600,429.9900) .. (300.4400,426.7500) .. controls
+    (307.3800,423.4800) and (309.9700,421.7500) .. (309.9700,421.7500) .. controls
+    (309.9700,421.7500) and (313.9200,421.4900) .. (313.4100,413.0300) .. controls
+    (316.1700,411.3100) and (341.9700,395.0600) .. (341.9700,395.0600) .. controls
+    (341.9700,395.0600) and (332.8400,417.6000) .. (331.9100,427.5600) .. controls
+    (331.2100,437.4600) and (327.6900,504.1200) .. (327.6900,504.1200) .. controls
+    (327.6900,504.1200) and (328.1300,509.2200) .. (324.7800,510.2200) .. controls
+    (321.2800,511.1700) and (305.7200,515.5000) .. (305.7200,515.5000) .. controls
+    (305.7200,515.5000) and (301.3900,516.2100) .. (301.5000,519.7200) .. controls
+    (301.3900,523.0400) and (303.0200,524.3400) .. (304.9400,524.4700) .. controls
+    (306.9300,524.3400) and (355.7200,524.4700) .. (355.7200,524.4700) .. controls
+    (355.7200,524.4700) and (360.7100,525.0000) .. (361.5300,518.4100) .. controls
+    (362.3400,511.9900) and (371.5900,445.5000) .. (371.5900,445.5000) .. controls
+    (371.5900,445.5000) and (367.5700,444.4500) .. (367.6200,440.5000) .. controls
+    (367.5700,436.3200) and (367.5600,433.2000) .. (368.9400,431.5000) .. controls
+    (370.1600,429.9500) and (384.8300,413.0400) .. (394.8800,389.5300) .. controls
+    (396.4200,386.0300) and (397.5600,389.1300) .. (397.7800,390.0600) .. controls
+    (398.2100,390.7500) and (417.2800,442.6600) .. (419.4700,444.7200) .. controls
+    (421.8400,446.5600) and (473.3600,488.2300) .. (474.5000,489.0900) .. controls
+    (475.6400,489.8600) and (478.9100,492.1100) .. (479.0000,499.3800) .. controls
+    (478.9100,506.7600) and (475.9700,512.6300) .. (473.9700,514.9700) .. controls
+    (472.0500,517.1900) and (468.8000,520.4500) .. (468.6900,521.8400) .. controls
+    (468.8000,523.3800) and (470.2800,524.3400) .. (471.3400,524.4700) .. controls
+    (472.5600,524.3400) and (479.2500,524.3400) .. (479.8100,524.4700) .. controls
+    (480.5500,524.3400) and (489.3400,525.0100) .. (495.4100,514.1900) .. controls
+    (501.7300,503.5300) and (513.1200,484.3400) .. (513.1200,484.3400) .. controls
+    (513.1200,484.3400) and (515.5800,480.5600) .. (512.0600,478.2500) .. controls
+    (508.4000,476.0100) and (502.7100,474.7100) .. (499.3800,471.1200) .. controls
+    (495.8600,467.5500) and (462.9400,429.6400) .. (462.3400,428.8800) .. controls
+    (461.9600,428.3400) and (457.7100,423.7600) .. (452.2800,426.2200) .. controls
+    (450.7000,424.0900) and (448.8400,421.2200) .. (448.8400,421.2200) .. controls
+    (448.8400,421.2200) and (439.4600,364.4600) .. (429.5300,340.4100) .. controls
+    (431.8000,339.0000) and (434.8100,336.7200) .. (434.8100,336.7200) .. controls
+    (434.8100,336.7200) and (442.7200,343.5500) .. (449.3800,336.4400) .. controls
+    (456.0900,329.2300) and (455.6000,329.4100) .. (454.4100,326.1600) .. controls
+    (453.3200,322.9000) and (452.8300,321.9100) .. (450.4400,320.5900) .. controls
+    (448.2700,319.3000) and (444.5200,315.5500) .. (444.6200,308.9700) .. controls
+    (444.5200,302.5400) and (441.7400,284.8000) .. (438.5300,277.2800) .. controls
+    (435.5500,269.8300) and (434.5600,261.5500) .. (422.9100,256.4400) .. controls
+    (404.4800,248.2100) and (379.8000,243.3100) .. (361.8100,247.9700) .. controls
+    (356.8300,249.3000) and (340.8200,261.0500) .. (339.3100,261.9700) .. controls
+    (337.8900,262.6800) and (331.6400,265.2600) .. (332.1900,259.8400) .. controls
+    (333.4500,247.4700) and (322.7500,225.7300) .. (303.5900,225.7800) --
+    cycle(394.8800,275.9700) .. controls (394.8800,275.9700) and
+    (408.4700,275.8400) .. (411.5300,276.2200) .. controls (414.3400,276.5000) and
+    (416.0300,280.1900) .. (416.0300,280.1900) -- (429.0000,325.8800) --
+    (424.2500,328.7800) .. controls (421.5800,323.2700) and (397.9000,287.2600) ..
+    (393.0300,280.4700) .. controls (389.9100,276.1000) and (394.8800,275.9700) ..
+    (394.8800,275.9700) -- cycle(331.0000,332.8100) .. controls
+    (331.5700,332.7900) and (332.2200,332.9700) .. (332.7200,333.2800) .. controls
+    (337.8300,336.2000) and (347.5100,344.5400) .. (355.7200,356.0000) .. controls
+    (356.7000,357.3200) and (355.7200,361.2800) .. (355.7200,361.2800) --
+    (348.5900,376.0600) .. controls (348.5900,376.0600) and (317.8500,395.3700) ..
+    (315.5000,396.9100) .. controls (312.9600,398.3000) and (311.5500,396.9300) ..
+    (313.9400,393.7500) .. controls (327.6400,375.1200) and (332.7200,353.0000) ..
+    (329.5300,335.1200) .. controls (329.2600,333.4800) and (330.0500,332.8500) ..
+    (331.0000,332.8100) -- cycle;}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Math packages
+
+%** vector
+\newcommand\V[1]{\mathbf{#1}}
+
+%** tensor
+\newcommand\T[1]{\underline{\underline{#1}}}
+
+%** basic sets
+\newcommand\N{\mathbb{N}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\R{\mathbb{R}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\G{\mathbb{G}}
+
+%** total derivative
+\newcommand\dtot[2]{\frac{\text{d} #1}{\text{d} #2}}
+\newcommand\ddtot[2]{\frac{\text{d}^{2} #1}{\text{d} {#2}^{2}}}
+\newcommand\sdtot[2]{\sfrac{\text{d} #1}{\text{d} #2}}
+\newcommand\sddtot[2]{\sfrac{\text{d}^{2} #1}{\text{d} {#2}^{2}}}
+
+%** partial derivative
+\newcommand\dpart[2]{\frac{\partial #1}{\partial #2}}
+\newcommand\ddpart[2]{\frac{\partial^{2} #1}{\partial {#2}^{2}}}
+\newcommand\sdpart[2]{\sfrac{\partial #1}{\partial #2}}
+\newcommand\sddpart[2]{\sfrac{\partial^{2} #1}{\partial {#2}^{2}}}
+
+%** differential
+\newcommand\dd{\mbox{ d}}
+
+%** time derivative
+\newcommand\dt[1]{\dot{#1}}
+\newcommand\dtt[1]{\ddot{#1}}
+
+%** vector calculus
+\newcommand\grad{\nabla}
+\newcommand\curl{\nabla \times}
+\renewcommand\div{\nabla \cdot}
+\newcommand\lap{\Delta}
+\DeclareMathOperator{\opgrad}{\bf grad}
+\DeclareMathOperator{\opcurl}{\bf rot}
+\DeclareMathOperator{\opdiv}{div}
+\newcommand{\oplap}{\Delta}
+
+%** abs
+\newcommand\abs[1]{\left| #1 \right|}
+%% \newcommand\abs[1]{\lvert #1 \rvert}
+
+%** norms
+\newcommand\norm[1]{\| #1 \|}
+\newcommand\norminf[1]{\| #1 \|_{\infty}}
+\newcommand\normtwo[1]{\| #1 \|_{2}}
+
+%** identity matrix
+\newcommand\id{\mathbb{I}}
+
+%** simple exponential
+\newcommand\e[1]{\text{e}^{#1}}
+
+%** ceil and floor
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+
+%** transposition
+\newcommand\transpose{^\text{T}}
+%% \newcommand\transpose[1]{{#1}^{\text{T}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%** text shortcuts (technical)
+\newcommand\cigre{\textsc{Cigre}}
+\newcommand\cner{\textsc{Cner}}
+\newcommand\cnes{\textsc{Cnes}}
+\newcommand\escb{\textsc{Escb}}
+\newcommand\ieee{\textsc{Ieee}}
+\newcommand\infoligne{Infoligne}
+\newcommand\iso{\textsc{Iso}}
+\newcommand\olla{\textsc{Olla}}
+\newcommand\nerf{\textsc{Nerf}}
+\newcommand\pallas{\textsc{Pallas}}
+\newcommand\poc{\textsc{Poc}}
+\newcommand\sar{\textsc{Sar}}
+\newcommand\scb{\textsc{Scb}}
+\newcommand\rte{\textsc{Rte}}
+\newcommand\thermohl{Therm\textsc{Ohl}}

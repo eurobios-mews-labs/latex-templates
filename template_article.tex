@@ -1,0 +1,135 @@
+%** language french/english should be passed to \documentclass
+\documentclass[a4paper, french, 10pt]{article}
+
+%** title, author and date (classic latex)
+\title{Un super beau titre}
+\author{Mews Labs}
+\date{\today}
+
+%** options are :
+%** [kpfonts, lmodern, libertine, newtx] to chose the font
+%** [draft] add a draft watermark
+\usepackage[lmodern]{ml_article}
+
+%** header and foot content
+\hdcontent{Du contenu ici}
+\ftcontent{Andesite Solutions \&{} Mews Labs}
+
+%** override document main color
+\colorlet{mmain}{lineD}
+
+%** set dir path for figures
+\graphicspath{{figures/}{logo/}}
+
+%** choose logos
+\firstlogo{mewslabs}
+\secondlogo{andesite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%** user own def
+
+\newcommand{\W}{\Omega}
+\newcommand{\w}{\omega}
+\newcommand{\wz}{\omega_0}
+\newcommand{\wn}{\omega_n}
+
+\newcommand\st{\text{St}}
+\newcommand\CD{C_{\text{D}}}
+\newcommand\CLz{\tilde{C}_{\text{L}}}
+
+\newcommand{\Ed}{E_{\text{diss}}}
+\newcommand{\Ea}{E_{\text{app}}}
+
+\newcommand{\ymax}{y_{\text{max}}}
+\newcommand{\cmax}{\chi_{\text{max}}}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\maketitle
+\abstract{\lipsum[1]}
+%% \tableofcontents
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Avec \LaTeX{} on peut écrire des maths}
+
+On s'intéresse aux vibrations d'une corde de longueur $L$, tendue à la tension $H$ et de masse linéique $m$
+soumise à une excitation périodique en temps
+%
+\begin{equation}
+    \label{eq:wave}
+    m\ddpart{y}{t} \,+\, 2m\wz\zeta\dpart{y}{t} \,-\, H \ddpart{y}{x} \;=\; F(x)\cos(\w t) \;,
+\end{equation}
+%
+avec les conditions aux limites suivantes:
+%
+\begin{mitemize}
+    \item la corde est fixée en ses extrémités: $y(0, t) = y(L, t) = 0$;
+    \item les conditions initiales sont: $y(x, 0) = y^0(x)$ et $\dpart{y}{t}(x, 0) = \dot{y}^0(x)$.
+\end{mitemize}
+%
+La pulsation propre de la corde est $\wz=\frac{\pi}{L}\sqrt{\frac{H}{m}}$, et on suppose que $\zeta < 1$.
+En adimensionnant $y$ par $d$, le diamètre de la corde, $x$ par $L$ et $t$ par $\sfrac{1}{\wz}$, \equref{wave}
+devient
+%
+\begin{equation}
+    \label{eq:wadim}
+    \ddpart{y}{t} \,+\, 2\zeta\dpart{y}{t} \,-\, \frac{1}{\pi^2} \ddpart{y}{x} \;=\; A(x)\cos(\Omega t) \;,
+\end{equation}
+%
+où $\Omega = \sfrac{\w}{\wz}$ et $A(x) = \sfrac{F(x)}{(m\wz^2 d)}$. La solution générale à ce problème est
+données en \secref{fullres}. Dans la suite, on s'intéressera aux cas particuliers où $F(x)$ est une constante
+(c'est à dire une excitation uniforme en espace) d'une part, et dans le cas d'une excitation locale d'autre part.
+On se placera également dans le régime permanent.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Une sous-section}
+
+\lipsum[1]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Une autre sous-section}
+
+\lipsum[3]
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Une autre section}
+
+\lipsum[4-6]
+
+\begin{mfig}
+  \includegraphics[width=0.67\textwidth]{mewslabs.png}
+\mcaption{Gros titre important}{La légende en détails.}
+\end{mfig}
+
+
+
+
+\clearpage
+\appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Les annexes}
+
+\lipsum[5]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

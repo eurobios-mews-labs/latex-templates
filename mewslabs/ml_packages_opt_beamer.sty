@@ -1,0 +1,45 @@
+%** animations
+\RequirePackage[final]{animate}
+
+%** beamer notes
+\RequirePackage{pgfpages}
+
+%** justified text in beamer
+\RequirePackage{ragged2e}
+\justifying
+
+% various underlining possibilities
+%% \RequirePackage{ulem}
+
+%** xfrac fix for beamer
+\newcommand\sfrac[2]{^{#1}/_{#2}}
+
+%** footnote setup [BEAMER]
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Last packages (common, to avoid conflicts)
+
+%** tikz and sub-products
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{pgfplotstable}
+\RequirePackage{tikz-3dplot}
+\usetikzlibrary{arrows, calc, external, patterns, positioning, shapes.geometric}
+
+%% \RequirePackage{tikz-uml}
+%% \tikzumlset{fill class=line13!25, draw=lineB}
+%% \newcommand\virt[1]{\emph{\textcolor{gray}{#1}}}
+
+%** lots of colors
+%% \RequirePackage[usenames,dvipsnames]{xcolor}
+
+%** pdf information and hyperlinks
+\pdfstringdefDisableCommands{\let\uwave\relax\let\textsuperscript\relax\let\quad\relax}
+\RequirePackage{hyperref}
+\RequirePackage{bookmark}

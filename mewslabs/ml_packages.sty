@@ -1,0 +1,67 @@
+%** math symbols [DO NOT USE WITH KPFONTS]
+\ifthenelse{\boolean{b_font_kp}}{%
+  %
+}{%
+  \RequirePackage{amsmath}
+  \RequirePackage{amssymb}
+  \RequirePackage{textcomp}
+}
+
+%** Nice arrays
+\RequirePackage{array, multirow}
+\RequirePackage{booktabs}
+\RequirePackage{colortbl}
+\RequirePackage{multicol}
+
+%** Misc. symbols
+\RequirePackage{fontawesome}
+\RequirePackage{marvosym}
+\RequirePackage{pifont}
+\RequirePackage{wasysym}
+
+%** nice quotes
+\RequirePackage{csquotes}
+
+%** include pictures
+\RequirePackage{graphicx}
+
+%** random text to test formating
+\RequirePackage{lipsum}
+
+%** insert nice code
+\RequirePackage{listings}
+
+%**
+\usepackage{mathtools,mathrsfs}
+
+%** include pdfs
+\RequirePackage{pdfpages}
+
+%** change font size relatively
+\RequirePackage{relsize}
+
+%** text stretching
+\RequirePackage{setspace}
+\setstretch{1.15}
+\renewcommand{\arraystretch}{1.6}
+
+%** insert si units (+ array aligned and large number formating)
+\RequirePackage{siunitx}
+\sisetup{
+  locale=US,
+  detect-all,
+  group-separator={~},
+  group-minimum-digits=4,
+  exponent-product=\cdot,
+  range-phrase=--,
+  range-units=single
+}
+
+%** make subfigures
+\RequirePackage{subfig}
+
+%** insert urls
+\RequirePackage{url}
+
+%** to copy/paste code
+\RequirePackage{verbatim}

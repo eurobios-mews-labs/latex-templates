@@ -1,0 +1,55 @@
+%** to avoid possible error 131 with Acrobat reader
+%% \pdfobjcompresslevel=1
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Latex basic packages
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+%** user should indicate the language as an option in \documentclass statement
+\RequirePackage{babel}
+\RequirePackage{microtype}
+
+%** make tests
+\RequirePackage{ifthen}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Booleans and options
+
+\newboolean{b_font_kp}
+\setboolean{b_font_kp}{false}
+\DeclareOption{kpfonts}{\setboolean{b_font_kp}{true}}
+
+\newboolean{b_font_lmodern}
+\setboolean{b_font_lmodern}{false}
+\DeclareOption{lmodern}{\setboolean{b_font_lmodern}{true}}
+
+\newboolean{b_font_libertine}
+\setboolean{b_font_libertine}{false}
+\DeclareOption{libertine}{\setboolean{b_font_libertine}{true}}
+
+\newboolean{b_font_newtx}
+\setboolean{b_font_newtx}{false}
+\DeclareOption{newtx}{\setboolean{b_font_newtx}{true}}
+
+\newboolean{b_draft}
+\setboolean{b_draft}{false}
+\DeclareOption{draft}{\setboolean{b_draft}{true}}
+
+\ProcessOptions\relax
+
+%** default value
+\ifthenelse{\boolean{b_font_kp}\OR\boolean{b_font_lmodern}\OR\boolean{b_font_libertine}\OR\boolean{b_font_newtx}}{%
+}{%
+  \setboolean{b_font_lmodern}{true}
+}

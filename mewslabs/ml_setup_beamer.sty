@@ -1,0 +1,183 @@
+%%% Colors and fonts [BEAMER]
+
+%** color/font theme
+\usetheme{Boadilla}
+\usecolortheme{whale}
+
+\setbeamercolor{palette primary}{use=structure,fg=black,bg=white} %color of the footbar
+\setbeamertemplate{navigation symbols}{} % remove navigation bar
+\setbeamertemplate{title page}[default][rounded=false,shadow=false] % box in the title page
+\setbeamercolor{local structure}{fg=rtedarkblue} % set the colors of the item symbols in itemize environments
+\setbeamercolor{item projected}{bg=rtedarkblue,fg=white} % color of the items in a numbered list
+\setbeamertemplate{itemize item}[circle] % shape of item symbols
+\setbeamertemplate{itemize subitem}[triangle] % shape of subitem symbols
+\setbeamertemplate{itemize subsubitem}[circle] % shape of subsubitem symbols
+\setbeamertemplate{enumerate items}[circle] % enumerate item
+\setbeamercolor{normal text}{bg=white,fg=black} % normal text: font color and background color
+\setbeamercolor{section number projected}{fg=black,bg=white} % color of bullet (background and number inside) in table of contents
+\setbeamercolor{subsection number projected}{fg=white,bg=white} % no color of subsection bullet in table of contents
+\setbeamercolor{box_colors}{fg=black, bg=rtecyan}
+\setbeamertemplate{blocks}[rounded] % standard block: not rounded, not shadowed
+\setbeamercolor{block title}{use=structure,fg=white,bg=rtecyan} % block title color
+\setbeamercolor{block body}{use=structure,fg=black,bg=white!90!black} % block body color
+
+\setbeamercolor{block title example}{use=structure,fg=white,bg=rtedarkgreen!67} % exampleblock title color
+\setbeamercolor{block body example}{use=structure,fg=black,bg=white!90!black} % exampleblock body color
+
+%** footline
+\colorlet{footbg}{white}
+\colorlet{footfg}{black!50}
+\setbeamercolor{title in head/foot}{bg=footbg, fg=footfg}
+\setbeamercolor{subtitle in head/foot}{bg=footbg, fg=footfg}
+\setbeamercolor{author in head/foot}{bg=footbg, fg=footfg}
+\setbeamercolor{institute in head/foot}{bg=footbg, fg=footfg}
+\setbeamercolor{date in head/foot}{bg=footbg, fg=footfg}
+\setbeamercolor{page in head/foot}{bg=footbg, fg=footfg}
+
+%** titlepage
+\setbeamercolor{title}{fg=rtedarkblue, bg=white}
+\setbeamercolor{subtitle}{fg=rteblue, bg=white}
+\setbeamercolor{author}{fg=black, bg=white}
+\setbeamercolor{institute}{fg=rtedarkgreen, bg=white}
+\setbeamercolor{date}{fg=black!50, bg=white}
+\setbeamerfont{title}{size=\huge, series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large, series=\bfseries}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{institute}{size=\large}
+\setbeamerfont{date}{size=\normalsize}
+
+%** frame title
+\setbeamertemplate{frametitle}[default][center]
+\setbeamercolor{frametitle}{fg=rtedarkblue, bg=white}
+\setbeamercolor{framesubtitle}{fg=rteblue, bg=white}
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\large, series=\mdseries}
+
+%** toc
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}{\hspace{2em}\inserttocsubsection\par}
+\setbeamercolor{section in toc}{fg=rtedarkblue, bg=white}
+\setbeamercolor{subsection in toc}{fg=black!80, bg=white}
+\setbeamerfont{section in toc}{size=\large}
+\setbeamerfont{subsection in toc}{size=\normalsize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Theme [BEAMER]
+
+\addtolength{\topmargin}{0pt}
+\addtolength{\headsep}{0pt}
+\addtolength{\oddsidemargin}{0pt}
+\addtolength{\marginparwidth}{5pt}
+\addtolength{\marginparsep}{0pt}
+\addtolength{\textwidth}{0pt}
+
+%** footline
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.5ex,dp=1ex,left]{institute in head/foot}%
+      \usebeamerfont{date in head/foot}
+      \hspace*{\marginparwidth}
+      \insertshortdate
+    \end{beamercolorbox}
+    %
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1ex,center]{institute in head/foot}%
+      \usebeamerfont{title in head/foot}
+      \insertshorttitle
+    \end{beamercolorbox}
+    %
+    \begin{beamercolorbox}[wd=0.33\paperwidth,ht=2.5ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{page in head/foot}
+      \insertframenumber{} / \inserttotalframenumber%
+      \hspace*{\marginparwidth}
+    \end{beamercolorbox}
+  }%
+  \vskip2pt%
+}
+
+\newboolean{b_firstlogo}
+\setboolean{b_firstlogo}{false}
+\newcommand{\firstlogo}[1]{
+  \setboolean{b_firstlogo}{true}
+  \newcommand{\Firstlogo}{#1}
+}
+
+\newboolean{b_secondlogo}
+\setboolean{b_secondlogo}{false}
+\newcommand{\secondlogo}[1]{
+  \setboolean{b_secondlogo}{true}
+  \newcommand{\Secondlogo}{#1}
+}
+
+%** to add the logos in the background of each frame
+\addtobeamertemplate{frametitle}{}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west, xshift=+0pt, yshift=+2pt] at (current page.north west) {%
+      \ifthenelse{\boolean{b_firstlogo}}{\includegraphics[height=7mm]{\Firstlogo}}{}
+    };
+    \node[anchor=north east, xshift=-0pt, yshift=-1pt] at (current page.north east) {%
+      \ifthenelse{\boolean{b_secondlogo}}{\includegraphics[height=7mm]{\Secondlogo}}{}
+    };
+  \end{tikzpicture}
+  \vspace{-6.0mm}
+}
+
+%** to add the logos in the background of title page
+\addtobeamertemplate{title page}{}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west, xshift=+5pt, yshift=+2pt] at (current page.north west) {%
+      \ifthenelse{\boolean{b_firstlogo}}{\includegraphics[height=11mm]{\Firstlogo}}{}
+    };
+    \node[anchor=north east, xshift=-5pt, yshift=+2pt] at (current page.north east) {%
+      \ifthenelse{\boolean{b_secondlogo}}{\includegraphics[height=11mm]{\Secondlogo}}{}
+    };
+  \end{tikzpicture}
+  \vspace{-5em}
+}
+
+%** add a slide at each section start
+\AtBeginSection[]{%
+  \begingroup
+  \begin{frame}[plain]{~}
+    \addtocounter{framenumber}{-1}
+    \tableofcontents[currentsection, currentsubsection, sectionstyle=show/shaded, subsectionstyle=show/show/shaded]
+  \end{frame}
+  \endgroup
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% deactivated beamersetup
+
+%% \newcommand\comm[1]{
+%%   \begingroup
+%%   \setlength{\baselineskip}{0.8\baselineskip}
+%%   \begingroup
+%%   \footnotesize #1
+%%   \endgroup
+%%   \par
+%%   \endgroup
+%% }
+
+%% \newcommand\refnot[1]{\hyperlink{slideNotations}{#1}}
+
+%% \newcommand\slideplan[1]{
+%%   \begingroup
+%%   \begin{frame}[plain]{#1}
+%%     \addtocounter{framenumber}{-1}
+%%     \tableofcontents[]
+%%   \end{frame}
+%%   \endgroup
+%% }
+
+%% \newcommand\Tstrut{\rule{0pt}{2.2ex}}         % = `top' strut
+%% \newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut

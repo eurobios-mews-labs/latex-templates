@@ -1,0 +1,228 @@
+%** language french/english should be passed to \documentclass
+\documentclass[10pt, aspectratio=169, french]{beamer}
+
+%** options are :
+%** [kpfonts, lmodern, libertine, newtx] to chose the font
+%** [draft] add a draft watermark
+\usepackage[kpfonts,draft]{ml_slides}
+\graphicspath{{figures/}{logo/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Title in footer]{Title on titlepage}
+\subtitle[Subtitle in footer]{Subtitle}
+\author[Authors in footer]{List of all authors}
+\institute[Institute in footer]{Insitute on title page}
+\date[Date in footer]{Date on title page}
+
+%** choose logos
+\firstlogo{mewslabs}
+\secondlogo{andesite}
+
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+\begin{frame}{Introduction}
+  Blablabla\ldots
+\end{frame}
+
+\begin{frame}{Introduction}
+  \tableofcontents
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Slides types}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Lists}{Un sous-titre de slide}
+
+  \begin{itemize} \setlength{\itemsep}{0.67em}
+  \item un élément de liste
+  \item un élément de liste
+  \item un élément de liste avec une sous-liste
+    \begin{itemize} \setlength{\itemsep}{0.33em}
+    \item un élément de liste
+    \item un élément de liste
+    \end{itemize}
+  \item un élément de liste
+  \end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Tableaux}
+
+  \centering
+
+  \renewcommand{\arraystretch}{1.1}
+  %\rowcolors{2}{gray!25}{white}
+  \begin{tabular}{ccc}
+    \toprule
+    % \rowcolor{gray!33}
+    \no & Livrable & Date \\
+    \midrule
+    \rowcolor{gray!30}
+    1 & Slide et CR de la réunion de lancement & 7 octobre 2022 \\
+    \rowcolor{gray!10}
+    2 & Rapport intermédiaire d'avancement & 16 novembre 2022 \\
+    \rowcolor{gray!30}
+    3 & Rapport final et code-source associé & 20 décembre 2022 \\
+    \bottomrule
+  \end{tabular}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Blocs}
+  \centering
+
+  \begin{block}{Titre de bloc}
+    Contenu de block (défaut)
+  \end{block}
+
+  \medskip
+
+  \begin{exampleblock}{Titre de bloc}
+    Contenu de block (exemple)
+  \end{exampleblock}
+
+  \medskip
+  \begin{alertblock}{Titre de bloc}
+    Contenu de block (alerte)
+  \end{alertblock}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Colonnes}
+
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \footnotesize\justifying
+      \lipsum[1]
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \small\justifying
+      \lipsum[1]
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Code}{Ne pas oublier l'option \emph{fragile}}
+
+  \begin{lstlisting}[language=c++, frame=single]
+    #include<iostream>
+
+    int main()
+    {
+      std::cout << "Hello World!" << std::endl;
+      return 0;
+    }
+  \end{lstlisting}
+
+  \bigskip
+
+  \begin{lstlisting}[language=python, frame=single]
+  print("Hello, World!")
+  \end{lstlisting}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Icones}
+
+  \begin{itemize}
+  \item Icones disponibles: \cmark, \xmark, \ucmark, \mycal, \mycross, \myarrow
+  \item Gestion des notes\footnote[frame]{Je suis une note}
+  \item
+    \begin{equation*}
+      \sum_{n=1}^{\infty}\frac{1}{n^2} \;=\; \frac{\pi^2}{6}
+    \end{equation*}
+  \end{itemize}
+
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dummy section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Dummy slide}
+  \centering
+  \begin{minipage}{0.9\textwidth}
+    \justifying\lipsum[1]
+  \end{minipage}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dummy section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Dummy slide}
+  \centering
+  \begin{minipage}{0.9\textwidth}
+    \justifying\lipsum[1]
+  \end{minipage}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dummy subsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Dummy slide}
+  \centering
+  \begin{minipage}{0.9\textwidth}
+    \justifying\lipsum[1]
+  \end{minipage}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dummy subsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Dummy slide}
+  \centering
+  \begin{minipage}{0.9\textwidth}
+    \justifying\lipsum[1]
+  \end{minipage}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

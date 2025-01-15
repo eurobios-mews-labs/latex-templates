@@ -1,0 +1,226 @@
+\input{mewslabs/ml_intro.sty}
+\input{mewslabs/ml_font.sty}
+\input{mewslabs/ml_packages.sty}
+\input{mewslabs/ml_packages_opt.sty}
+\input{mewslabs/ml_misc.sty}
+\input{mewslabs/ml_setup.sty}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\ifthenelse{\boolean{b_hdcontent}}{\mfstyle\Hdcontent}{}}
+\fancyhead[RO]{\mfstyle\nouppercase\leftmark}
+\fancyfoot[LE]{\mfstyle\thepage/\pageref*{LastPage}}
+\fancyfoot[RO]{\mfstyle\thepage/\pageref*{LastPage}}
+\fancyfoot[RE]{\ifthenelse{\boolean{b_ftcontent}}{\mfstyle\Ftcontent}{}}
+\fancyfoot[LO]{\mfstyle Document confidentiel}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OPENING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%**
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+  \hbox{}
+  \vspace*{\fill}
+  \strut
+  \vspace{\fill}
+  \thispagestyle{empty}
+  \newpage
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+%** insert an empty page
+\newcommand{\insertemptypage}{
+  \clearpage
+  \thispagestyle{empty}
+  \strut
+  \newpage
+}
+
+%** clear page and start on even page
+\newcommand{\jumpandstartoneven}{
+  \clearpage
+  \if@twoside
+  \checkoddpage
+  \ifoddpage \insertemptypage
+  \else
+  \fi
+  \fi
+}
+
+%** clear page and start on even page
+\newcommand{\jumpandstartonodd}{
+  \clearpage
+  \if@twoside
+  \checkoddpage
+  \ifoddpage
+  \else \insertemptypage
+  \fi
+  \fi
+}
+
+%**
+
+\newboolean{b_mtitlelogo}
+\setboolean{b_mtitlelogo}{false}
+\newcommand{\mtitlelogo}[1]{
+ \setboolean{b_mtitlelogo}{true}
+ \newcommand{\mtitleLogo}{#1}
+}
+\newcommand\insertmtitlelogo{\ifthenelse{\boolean{b_mtitlelogo}}{\mtitleLogo}{eurobios}}
+
+\newboolean{b_mtitletitle}
+\setboolean{b_mtitletitle}{false}
+\newcommand{\mtitletitle}[1]{
+ \setboolean{b_mtitletitle}{true}
+ \newcommand{\mtitleTitle}{#1}
+}
+\newcommand\insertmtitletitle{\ifthenelse{\boolean{b_mtitletitle}}{\mtitleTitle}{Sans titre}}
+
+\newboolean{b_mtitleref}
+\setboolean{b_mtitleref}{false}
+\newcommand{\mtitleref}[1]{
+ \setboolean{b_mtitleref}{true}
+ \newcommand{\mtitleRef}{#1}
+}
+\newcommand\insertmtitleref{\ifthenelse{\boolean{b_mtitleref}}{\mtitleRef}{X-XXXX-XX-XX\_X}}
+
+\newboolean{b_mtitleversion}
+\setboolean{b_mtitleversion}{false}
+\newcommand{\mtitleversion}[1]{
+ \setboolean{b_mtitleversion}{true}
+ \newcommand{\mtitleVersion}{#1}
+}
+\newcommand\insertmtitleversion{\ifthenelse{\boolean{b_mtitleversion}}{\mtitleVersion}{0}}
+
+\newboolean{b_mtitledate}
+\setboolean{b_mtitledate}{false}
+\newcommand{\mtitledate}[1]{
+ \setboolean{b_mtitledate}{true}
+ \newcommand{\mtitleDate}{#1}
+}
+\newcommand\insertmtitledate{\ifthenelse{\boolean{b_mtitledate}}{\mtitleDate}{\today}}
+
+\newboolean{b_mtitlecontact}
+\setboolean{b_mtitlecontact}{false}
+\newcommand{\mtitlecontact}[1]{
+ \setboolean{b_mtitlecontact}{true}
+ \newcommand{\mtitleContact}{#1}
+}
+\newcommand\insertmtitlecontact{\ifthenelse{\boolean{b_mtitlecontact}}{\mtitleContact}{info@eurobios.com}}
+
+\newboolean{b_mtitlephone}
+\setboolean{b_mtitlephone}{false}
+\newcommand{\mtitlephone}[1]{
+ \setboolean{b_mtitlephone}{true}
+ \newcommand{\mtitlePhone}{#1}
+}
+\newcommand\insertmtitlephone{\ifthenelse{\boolean{b_mtitlephone}}{\mtitlePhone}{01xxxxxxxx}}
+
+
+\newcommand{\mtitlepage}{%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \newgeometry{hmargin=20mm, vmargin=20mm}
+  \begin{titlepage}
+
+    \ifthenelse{\boolean{b_firstlogo}}{\includegraphics[height=6em]{\Firstlogo}}{}
+    \hfill
+    \ifthenelse{\boolean{b_secondlogo}}{\includegraphics[height=6em]{\Secondlogo}}{}
+
+    \vspace{\stretch{1}}
+
+    \begin{center}
+      \begingroup
+      \color{mmain}{\rule[1em]{0.85\linewidth}{1.5pt}}
+      \endgroup
+      \begin{minipage}{0.85\linewidth}
+        \centering\Huge\bfseries\insertmtitletitle
+      \end{minipage}
+      \begingroup
+      \color{mmain}{\rule[-1em]{0.85\linewidth}{1.5pt}}
+      \endgroup
+    \end{center}
+
+    \vspace{\stretch{1}}
+
+    \begingroup
+    \small\ttfamily
+      \renewcommand\arraystretch{1.0}
+      \begin{tabular}{lr}
+        \toprule
+        Référence & \insertmtitleref\\
+        Version & \insertmtitleversion\\
+        Date & \insertmtitledate\\
+        \bottomrule
+      \end{tabular}
+      \endgroup
+
+    \vspace{\stretch{1}}
+
+    \begingroup
+    \begin{spacing}{1}
+      \centering \small \sffamily
+      \textbf{Mews Labs}\par
+      191 avenue Aristide Briand, 94230 Cachan\par
+      \Letter{} \insertmtitlecontact \hspace{1em} \phone{} \insertmtitlephone
+    \end{spacing}
+    \endgroup
+
+  \end{titlepage}
+  \restoregeometry
+  \insertemptypage
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+
+%**
+\newcommand{\mopen}{%
+  \mtitlepage%
+  %% \maketitle%
+  %% \jumpandstartonodd%
+  %
+  \begingroup%
+  \pagestyle{plain}%
+  \phantomsection%
+  \addcontentsline{toc}{chapter}{\contentsname}%
+  %% \addcontentsline{toc}{section}{\contentsname}%
+  \tableofcontents%
+  \endgroup%
+  \jumpandstartonodd%
+}
+
+\newcommand{\mappendix}{%
+  \jumpandstartonodd%
+  \thispagestyle{empty}%
+  \phantomsection%
+  \addcontentsline{toc}{part}{Annexes}%
+  \part*{Annexes}%
+  \appendix%
+}
+
+\newcommand{\mclose}[1]{%
+  \begingroup
+  \pagestyle{plain}
+  %
+  \jumpandstartonodd
+  %
+  \phantomsection
+  \addcontentsline{toc}{section}{\bibname}
+  \nocite{*}
+  \bibliography{#1}
+  \bibliographystyle{plain}
+  %
+  \phantomsection
+  \addcontentsline{toc}{section}{\listtablename}
+  \listoftables
+  %
+  \phantomsection
+  \addcontentsline{toc}{section}{\listfigurename}
+  \listoffigures
+  %
+  \endgroup
+}

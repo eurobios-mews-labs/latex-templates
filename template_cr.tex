@@ -1,0 +1,85 @@
+%** language french/english should be passed to \documentclass
+\documentclass[a4paper, french, 11pt, hidelinks]{article}
+
+%** title, author and date (classic latex)
+\title{CR R\'eunion du 09 f\'evrier 2021}
+\author{Équipe-projet POC}
+\date{\today}
+
+%** options are :
+%** [kpfonts, lmodern, libertine, newtx] to chose the font
+%** [draft] add a draft watermark
+\usepackage[newtx]{ml_cr}
+
+%** header and foot content
+\hdcontent{Client/Mews Labs | CR Réunion du 00/00/2000}
+\ftcontent{Other content}
+
+%** override document main color
+\colorlet{mmain}{lineD}
+
+%** set dir path for figures
+\graphicspath{{figures/}{logo/}}
+
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begingroup
+\centering\small
+\renewcommand\arraystretch{1.1}
+\begin{tabular}{p{0.1\linewidth}p{0.85\linewidth}}
+  \toprule
+  Date & 00/00/2000 à $09:00$ \\
+  Lieu & Visioconférence \\
+  Objet & Lancement et questions \\
+  \midrule
+  \multirow{2}{*}{Participants}
+  & \rte: John \textsc{Doe}, Sophie \textsc{Dupont}, Guillaume \textsc{Dubois} \\
+  & Mews Labs: Jean \textsc{Martin}, Marie \textsc{Machin} \\
+  \midrule
+  \multirow{1}{*}{Actions}
+  & (1) Créer un espace sharepoint pour faciliter le partage de ressources (JD) \\
+  & (2) Contacter Michel pour valider les hypothèses (MM) \\
+  & (3) Transmettre aux équipes techniques les questions soulevées (GD) \\
+  \bottomrule
+\end{tabular}
+%
+\endgroup
+
+\medskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Déroulement}
+
+\begin{itemize} \renewcommand\labelitemi{\mitem}
+\item Tour de table pour présenter les participants
+\item Présentation Mews Labs sur les objectifs du \textsc{Poc} et la
+  prise en main des données envoyées
+\item Questions (voir section suivante)
+\item Planification des réunions intermédiaires 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion/Questions}
+
+\begin{mitemize}
+\item Où ?
+\item Quand ?
+\item Qui ?
+  \item Pourquoi ?
+\end{mitemize}
+
+\medskip
+
+\lipsum[5-6]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -1,0 +1,13 @@
+\input{mewslabs/ml_intro.sty}
+\input{mewslabs/ml_font.sty}
+\input{mewslabs/ml_packages.sty}
+\input{mewslabs/ml_packages_opt.sty}
+\input{mewslabs/ml_misc.sty}
+\input{mewslabs/ml_setup.sty}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\ifthenelse{\boolean{b_hdcontent}}{\mfstyle\Hdcontent}{}}
+\fancyhead[R]{\mfstyle\nouppercase\leftmark} % section
+\fancyfoot[L]{\ifthenelse{\boolean{b_hdcontent}}{\mfstyle\Ftcontent}{}}
+\fancyfoot[R]{\mfstyle\thepage/\pageref*{LastPage}}

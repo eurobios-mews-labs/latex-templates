@@ -1,0 +1,123 @@
+%** [unecessary with babel=french] pour changer le titre de la liste des figures,
+%** table des matières et bibliographie
+%% \renewcommand\listfigurename{Liste des illustrations}
+%% \renewcommand\contentsname{Table des matières}
+%% \renewcommand\bibname{Références}
+
+%** to avoid one line at start/end of a page
+\widowpenalty=9999
+\clubpenalty=9999
+
+%** url style (package url)
+\makeatletter
+\def\url@murlstyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\color{blue}\smaller\ttfamily}}
+}
+\makeatother
+\urlstyle{murl}
+
+%** comment env
+\newenvironment{mcomment}{%
+  \begin{displayquote}%
+    \itshape\color{red}\Info~%
+}{
+  \end{displayquote}%
+}
+
+%** list commands
+\newcommand\mitem{\textcolor{mmain}{$\bullet$}}
+\newcommand\msubitem{\textcolor{mmain}{$\circ$}}
+\newcommand\marrow{\textcolor{mmain}{\ding{227}}}
+
+%** list env
+\newenvironment{mitemize}{%
+  \begin{itemize}%
+  \renewcommand\labelitemi{\mitem}%
+  \renewcommand\labelitemii{\msubitem}
+}{
+  \end{itemize}%
+}
+
+%** float env
+\newcommand{\mfloatstyledef}{\centering\small\sffamily}
+\newcommand{\mfloatstyle}{\mfloatstyledef}
+\newenvironment{mfig}{\begin{figure}[!hptb]\mfloatstyle}{\end{figure}}
+\newenvironment{mtab}{\begin{table}[!hptb]\mfloatstyle}{\end{table}}
+
+%** to force a start on an odd page
+\newcommand\clearandstartonodd{%
+  \begingroup%
+  \clearpage%
+  \pagestyle{empty}%
+  \cleardoublepage%
+  \endgroup%
+}
+
+%** profondeur de la numérotation (Chapitre -> Section ->
+%** sous-section -> sous-sous-section -> paragraphe (non numéroté))
+\setcounter{secnumdepth}{3}
+
+%** profondeur de la table des matières (cf. ci-dessus)
+\setcounter{tocdepth}{3}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Header and foot
+
+%** pour dessiner une ligne dans l'en-tête et le pied
+\renewcommand{\headrulewidth}{0.33pt}
+\renewcommand{\headrule}{\color{mgray}\hrule}
+\renewcommand{\footrulewidth}{0.33pt}
+\renewcommand{\footrule}{\color{mgray}\hrule}
+
+\addtolength{\headheight}{0mm}
+\addtolength{\headsep}{0mm}
+\addtolength{\footskip}{2mm}
+
+%**
+\newcommand\mfstyle{\footnotesize\sffamily\bfseries\color{mmain}}
+
+%** new plain style (only page number)
+
+\newboolean{b_firstlogo}
+\setboolean{b_firstlogo}{false}
+\newcommand{\firstlogo}[1]{
+  \setboolean{b_firstlogo}{true}
+  \newcommand{\Firstlogo}{#1}
+}
+
+\newboolean{b_secondlogo}
+\setboolean{b_secondlogo}{false}
+\newcommand{\secondlogo}[1]{
+  \setboolean{b_secondlogo}{true}
+  \newcommand{\Secondlogo}{#1}
+}
+
+
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\ifthenelse{\boolean{b_firstlogo}}{\includegraphics[height=3em]{\Firstlogo}}{}}
+  \fancyhead[R]{\ifthenelse{\boolean{b_secondlogo}}{\includegraphics[height=3em]{\Secondlogo}}{}}
+  \fancyfoot[R]{\mfstyle \thepage/\pageref*{LastPage}}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newboolean{b_hdcontent}
+\setboolean{b_hdcontent}{false}
+\newcommand{\hdcontent}[1]{
+  \setboolean{b_hdcontent}{true}
+  \newcommand{\Hdcontent}{#1}
+}
+
+\newboolean{b_ftcontent}
+\setboolean{b_ftcontent}{false}
+\newcommand{\ftcontent}[1]{
+ \setboolean{b_ftcontent}{true}
+ \newcommand{\Ftcontent}{#1}
+}

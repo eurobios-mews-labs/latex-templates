@@ -1,0 +1,103 @@
+%** get "Annexe" entry in toc
+\RequirePackage[titletoc]{appendix}
+
+%** customize figure and captions
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator*{vbar}{{\bfseries{} | }}
+\captionsetup{font={footnotesize,sf},labelfont={bf},labelsep={vbar}}
+\newcommand{\mcaption}[2]{\caption[#1]{\textbf{#1.}~#2}}
+
+%** background text
+\RequirePackage{draftwatermark}
+\ifthenelse{\boolean{b_draft}}{%
+  \SetWatermarkText{\texttt{draft}}
+  \SetWatermarkAngle{60}
+  \SetWatermarkScale{1.33}
+  \SetWatermarkColor{mgray}
+
+}{%
+  \SetWatermarkText{}
+}
+
+%** head and foot customization
+\RequirePackage{fancyhdr}
+
+%** force float position with [H] option
+\RequirePackage{float}
+
+%** set document and margin sizes
+\RequirePackage{geometry}
+\geometry{hmargin=30mm, vmargin=30mm, marginparsep=3mm, marginparwidth=25mm}
+
+%** test even/odd page
+\RequirePackage{ifoddpage}
+
+%** get total number of pages
+\RequirePackage{lastpage}
+
+%** utilisechemical formulae
+\RequirePackage[version=3]{mhchem}
+
+%** section title formating
+\RequirePackage{sectsty}
+\partfont{\color{mmain}}
+\chapterfont{\color{mmain}}
+\sectionfont{\color{mmain}}
+\subsectionfont{\color{mmain}}
+\subsubsectionfont{\color{mmain}}
+\paragraphfont{\color{mmain}}
+
+%** nice smaller fractions for math [problem with beamer]
+\RequirePackage{xfrac}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Last packages (common, to avoid conflicts)
+
+%** tikz and sub-products
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{pgfplotstable}
+\RequirePackage{tikz-3dplot}
+\usetikzlibrary{arrows, calc, external, patterns, positioning, shapes.geometric}
+
+\pgfplotsset{%
+  tick label style = {font=\sffamily},
+  every axis label = {font=\sffamily},
+  legend style     = {font=\sffamily},
+  label style      = {font=\sffamily},
+}
+
+%% \RequirePackage{tikz-uml}
+%% \tikzumlset{fill class=line13!25, draw=lineB}
+%% \newcommand\virt[1]{\emph{\textcolor{gray}{#1}}}
+
+%** lots of colors
+%% \RequirePackage[usenames,dvipsnames]{xcolor}
+
+%** pdf information and hyperlinks
+\RequirePackage[%
+ pdftex=true,
+ pdfusetitle,
+ pdftitle={\@title},
+ pdfauthor={\@author},
+ % pdfsubject={},
+ % pdfkeywords={},
+ hypertexnames=false,
+ plainpages=false,
+ pdfpagelabels,
+ bookmarks=true,
+ bookmarksnumbered=true,
+ bookmarksopen=true,
+ bookmarksopenlevel=0,
+ %%
+ %% colorlinks,
+ %% citecolor=black!80,
+ %% linkcolor=blue!80!gray,
+ %% urlcolor=blue,
+]{hyperref}
+\RequirePackage{bookmark}
